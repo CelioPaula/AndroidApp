@@ -1,21 +1,13 @@
 package com.example.androidproject;
 
-import android.app.DownloadManager;
+import android.app.Activity;
 import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonObject;
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,36 +15,63 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class APIManager {
+public class APIManager extends Activity {
 
-    public static final String ENDPOINT = "http://www.omdbapi.com/";
     private final MainActivity activity;
 
     public APIManager(MainActivity mainActivity) {
         this.activity = mainActivity;
     }
 
-    public void getDataFromAPI(String title) {
+    public void getMovies(String title) {
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(OMGDPService.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         OMGDPService api = retrofit.create(OMGDPService.class);
-        Call<List<Movies>> call = api.getMovies(title);
-
-        call.enqueue(new Callback<List<Movies>>(){
+        Call<JsonElement> call = api.getMovies(title);
+        call.enqueue(new Callback<JsonElement>(){
             @Override
-            public void onResponse(Call<List<Movies>> call, Response<List<Movies>> response){
-                List<Movies> movies = response.body();
-                activity.showList(movies);
+            public void onResponse(Call<JsonElement> call, Response<JsonElement> response){
+                if(response.isSuccessful()) {
+                    JsonElement json = response.body();
+                    ArrayList<Movies> movies = (ArrayList<Movies>) setListDataMovieFromJSON(json.getAsJsonObject());
+                    activity.showList(movies);
+                }
             }
 
             @Override
-            public void onFailure(Call<List<Movies>> call, Throwable t){
-                //Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<JsonElement> call, Throwable t){
+                Toast.makeText(activity.getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
             }
         });
     }
+
+
+
+    public ArrayList<Movies> setListDataMovieFromJSON(JsonObject json){
+        ArrayList<Movies> movies_list = null;
+        try {
+            movies_list = new ArrayList<>();
+            JsonArray movies_array = json.getAsJsonArray("Search");
+            for(int i = 0; i<movies_array.size(); i++){
+                JsonObject jsonMovie = (JsonObject) movies_array.get(i);
+                Movies movie = new Movies();
+                movie.setTitle(String.valueOf(jsonMovie.get("Title")).replace("\"", ""));
+                movie.setYear(String.valueOf(jsonMovie.get("Year")).replace("\"", ""));
+                movie.setType(String.valueOf(jsonMovie.get("Type")).replace("\"", ""));
+                movie.setUrlPoster(String.valueOf(jsonMovie.get("Poster")).replace("\"", ""));
+                movies_list.add(movie);
+            }
+        } catch (JsonIOException e) {
+            Toast.makeText(activity.getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+        return movies_list;
+    }
+
 
     /*public void getDataDetailsFromAPI(String title) {
         Retrofit retrofit = new Retrofit.Builder()
