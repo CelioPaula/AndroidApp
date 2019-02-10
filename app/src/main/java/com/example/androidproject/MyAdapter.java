@@ -1,27 +1,28 @@
 package com.example.androidproject;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
+import android.content.Intent;
+import android.hardware.camera2.TotalCaptureResult;
+import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     ArrayList<Movies> listMovies;
+    private final MainActivity activity;
 
-    public MyAdapter(ArrayList<Movies> movies){
+    public MyAdapter(ArrayList<Movies> movies, MainActivity mainActivity){
         this.listMovies = movies;
+        this.activity = mainActivity;
     }
 
     @Override
@@ -37,9 +38,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
+        final int posi = position;
         Movies movie = listMovies.get(position);
-        holder.display(movie);
+        holder.display(movie, holder.getAdapterPosition());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), MovieActivity.class);
+                intent.putExtra("targetMovie", listMovies.get(position).getTitle());
+                view.getContext().startActivity(intent);
+            }
+        });
+
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -48,8 +59,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         private final TextView year;
         private final TextView type;
         private final ImageView poster;
-
-        private Pair<String, String> currentArray;
+        private int position;
 
         public MyViewHolder(final View itemView) {
             super(itemView);
@@ -58,24 +68,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             year = (TextView) itemView.findViewById(R.id.year);
             poster = (ImageView) itemView.findViewById(R.id.poster);
             type = (TextView) itemView.findViewById(R.id.type);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    new AlertDialog.Builder(itemView.getContext())
-                            .setTitle(currentArray.first)
-                            .setMessage(currentArray.second)
-                            .show();
-                }
-            });
         }
 
-        public void display(Movies movie) {
-            //currentMovie = pair;
+        public void display(Movies movie, int position) {
             title.setText("Title : " + movie.getTitle());
             year.setText("Year : " + movie.getYear());
             type.setText("Type : " + movie.getType());
-            Picasso.with(poster.getContext()).load(movie.getUrlPoster()).centerCrop().fit().into(poster);
+            this.position = position;
+            if(!movie.getUrlPoster().equals("N/A"))Picasso.with(poster.getContext()).load(movie.getUrlPoster()).centerCrop().fit().into(poster);
+            else Picasso.with(poster.getContext()).load("http://staging1.lebanesefeast.com.au/wp-content/uploads/2018/10/picture-not-available.jpg").centerCrop().fit().into(poster);
         }
     }
 

@@ -23,8 +23,8 @@ public interface OMGDPService {
 
 
     @GET(KEY_API)
-    Call<JsonElement> getMovies(@Query("s") String title);
+    Call<JsonElement> getMovies(@Query("s") String title, @Query("page") String page);
 
-    //@GET(KEY_API + "&t=" + "{title}")
-    //Call<List<Movies>> getMoviesDetails(@Path("title") String name);
+    @GET(KEY_API)
+    Call<JsonElement> getMovieDetails(@Query("t") String title);
 }

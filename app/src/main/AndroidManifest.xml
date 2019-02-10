@@ -24,6 +24,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MovieActivity"
+            tools:ignore="ExtraText"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
     </application>
 
 </manifest>

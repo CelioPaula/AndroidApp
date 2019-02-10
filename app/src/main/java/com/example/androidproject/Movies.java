@@ -1,13 +1,4 @@
 package com.example.androidproject;
-
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-import org.json.JSONObject;
-
-import java.net.URL;
-import java.util.ArrayList;
-
 public class Movies {
 
     String title;
@@ -19,11 +10,12 @@ public class Movies {
     private String language;
     String type;
     String urlPoster;
+    String plot;
+    String awards;
+    String boxOffice;
+    String production;
 
     //private ArrayList<ArrayList<String>> rating;
-
-    //private APIManager apiManager = new APIManager();
-
 
     public String getYear() {
         return year;
@@ -96,6 +88,20 @@ public class Movies {
     public void setUrlPoster(String urlPoster) {
         this.urlPoster = urlPoster;
     }
-    //public void getAl(){}
 
+    public String getPlot() { return plot; }
+
+    public void setPlot(String plot) { this.plot = plot; }
+
+    public String getAwards() { return awards; }
+
+    public void setAwards(String awards) { this.awards = awards; }
+
+    public String getBoxOffice() { return boxOffice; }
+
+    public void setBoxOffice(String boxOffice) { this.boxOffice = boxOffice; }
+
+    public String getProduction() { return production; }
+
+    public void setProduction(String production) { this.production = production; }
 }
