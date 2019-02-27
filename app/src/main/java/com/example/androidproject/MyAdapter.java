@@ -45,6 +45,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                PreferencesManager preferencesManager = new PreferencesManager(activity);
+                preferencesManager.addSharedPreferences(listMovies.get(position));
                 Intent intent = new Intent(view.getContext(), MovieActivity.class);
                 intent.putExtra("targetMovie", listMovies.get(position).getTitle());
                 view.getContext().startActivity(intent);

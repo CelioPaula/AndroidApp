@@ -1,5 +1,10 @@
 package com.example.androidproject;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Movies {
+
 
     String title;
     String year;

@@ -20,7 +20,6 @@ public class APIManager extends Activity {
     public ArrayList<Movies> movie_list = new ArrayList<>();
     public int nbPages = 0;
     public int page;
-    public Movies movie = new Movies();
 
     public APIManager(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -60,8 +59,7 @@ public class APIManager extends Activity {
 
                 @Override
                 public void onFailure(Call<JsonElement> call, Throwable t) {
-                    //Toast.makeText(activity.getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-                    //t.printStackTrace();
+                    t.printStackTrace();
                 }
             });
     }
@@ -97,13 +95,14 @@ public class APIManager extends Activity {
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 if (response.isSuccessful()) {
                     JsonElement json = response.body();
-                    movieActivity.displayMovieInfo(getDetailsFromJSON(json.getAsJsonObject()));
+                    Movies movie = getDetailsFromJSON(json.getAsJsonObject());
+                    movieActivity.displayMovieInfo(movie);
                 }
             }
 
             @Override
             public void onFailure(Call<JsonElement> call, Throwable t) {
-                Toast.makeText(movieActivity.getApplicationContext(), "FAILURE", Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
             }
         });
     }
@@ -111,7 +110,7 @@ public class APIManager extends Activity {
     private Movies getDetailsFromJSON(JsonObject jsonObject){
         Movies movie = new Movies();
         movie.setTitle(String.valueOf(jsonObject.get("Title")).replace("\"", ""));
-        /*movie.setYear(String.valueOf(jsonObject.get("Released")).replace("\"", ""));
+        movie.setYear(String.valueOf(jsonObject.get("Released")).replace("\"", ""));
         movie.setRunTime(String.valueOf(jsonObject.get("Runtime")).replace("\"", ""));
         movie.setType(String.valueOf(jsonObject.get("Type")).replace("\"", ""));
         movie.setUrlPoster(String.valueOf(jsonObject.get("Poster")).replace("\"", ""));
@@ -122,7 +121,7 @@ public class APIManager extends Activity {
         movie.setGenre(String.valueOf(jsonObject.get("Genre")).replace("\"", ""));
         movie.setLanguage(String.valueOf(jsonObject.get("Language")).replace("\"", ""));
         movie.setPlot(String.valueOf(jsonObject.get("Plot")).replace("\"", ""));
-        movie.setProduction(String.valueOf(jsonObject.get("Production")).replace("\"", ""));*/
+        movie.setProduction(String.valueOf(jsonObject.get("Production")).replace("\"", ""));
         return movie;
     }
 }

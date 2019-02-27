@@ -3,17 +3,20 @@ package com.example.androidproject;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    APIManager apiManager = new APIManager(MainActivity.this);
+    private APIManager apiManager = new APIManager(MainActivity.this);
     public TextView pageNumber;
 
     @Override
@@ -25,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         final EditText enterTitle = findViewById(R.id.enterTitle);
         final Button btnNext = findViewById(R.id.nextBtn);
         final Button btnBefore = findViewById(R.id.beforeBtn);
+        PreferencesManager preferencesManager = new PreferencesManager(this);
+        ArrayList<Movies> prefMovies = preferencesManager.getSharedPreferences();
+        showList(prefMovies);
 
         enterTitle.setOnKeyListener(new View.OnKeyListener() {
             @Override
