@@ -1,15 +1,12 @@
 package com.example.androidproject;
 
 import android.content.Intent;
-import android.hardware.camera2.TotalCaptureResult;
-import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -18,11 +15,19 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     ArrayList<Movies> listMovies;
-    private final MainActivity activity;
+    private final MainActivity mainActivity;
+    private final SearchActivity searchActivity;
 
     public MyAdapter(ArrayList<Movies> movies, MainActivity mainActivity){
         this.listMovies = movies;
-        this.activity = mainActivity;
+        this.mainActivity = mainActivity;
+        searchActivity = null;
+    }
+
+    public MyAdapter(ArrayList<Movies> movies, SearchActivity searchActivity){
+        this.listMovies = movies;
+        this.searchActivity = searchActivity;
+        mainActivity = null;
     }
 
     @Override
@@ -45,8 +50,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PreferencesManager preferencesManager = new PreferencesManager(activity);
-                preferencesManager.addSharedPreferences(listMovies.get(position));
+                PreferencesManager preferencesManager = null;
+                if(searchActivity != null) {
+                    preferencesManager = new PreferencesManager(searchActivity);
+                    preferencesManager.addSharedPreferences(listMovies.get(position));
+                }
                 Intent intent = new Intent(view.getContext(), MovieActivity.class);
                 intent.putExtra("targetMovie", listMovies.get(position).getTitle());
                 view.getContext().startActivity(intent);
@@ -77,7 +85,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             year.setText("Year : " + movie.getYear());
             type.setText("Type : " + movie.getType());
             this.position = position;
-            if(!movie.getUrlPoster().equals("N/A"))Picasso.with(poster.getContext()).load(movie.getUrlPoster()).centerCrop().fit().into(poster);
+            if(movie.getUrlPoster().startsWith("https"))Picasso.with(poster.getContext()).load(movie.getUrlPoster()).centerCrop().fit().into(poster);
             else Picasso.with(poster.getContext()).load("http://staging1.lebanesefeast.com.au/wp-content/uploads/2018/10/picture-not-available.jpg").centerCrop().fit().into(poster);
         }
     }

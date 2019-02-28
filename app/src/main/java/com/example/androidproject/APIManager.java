@@ -15,20 +15,20 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIManager extends Activity {
 
-    private final MainActivity mainActivity;
+    private final SearchActivity searchActivity;
     private final MovieActivity movieActivity;
     public ArrayList<Movies> movie_list = new ArrayList<>();
     public int nbPages = 0;
     public int page;
 
-    public APIManager(MainActivity mainActivity) {
-        this.mainActivity = mainActivity;
+    public APIManager(SearchActivity searchActivity) {
+        this.searchActivity = searchActivity;
         movieActivity = null;
     }
 
     public APIManager(MovieActivity movieActivity){
         this.movieActivity = movieActivity;
-        mainActivity = null;
+        searchActivity = null;
     }
 
     public void getMovies(String title) {
@@ -50,10 +50,8 @@ public class APIManager extends Activity {
                             nbPages = nbResults - nbResults%10;
                             nbPages = nbResults/10;
                             setListDataMovieFromJSON(json.getAsJsonObject());
-                            mainActivity.showTextSearch(false);
-                            mainActivity.showList(movie_list);
-                            mainActivity.pageNumber.setText(String.valueOf(page)+"/"+String.valueOf(nbPages));
-
+                            searchActivity.showList(movie_list);
+                            searchActivity.pageNumber.setText(String.valueOf(page)+"/"+String.valueOf(nbPages));
                         }
                     }
                 }
@@ -78,7 +76,7 @@ public class APIManager extends Activity {
                 movie_list.add(movie);
             }
         } catch (JsonIOException e) {
-            Toast.makeText(mainActivity.getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(searchActivity.getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }
