@@ -50,7 +50,7 @@ public class PreferencesManager {
         ArrayList<Movies> lastSearch = new ArrayList<>();
         sharedPreferences = mainActivity.getBaseContext().getSharedPreferences(MYPREFS, MODE_PRIVATE);
         List<SearchPreferences> listPrefs = getListFromJSON(sharedPreferences.getString(SEARCH_KEY, null));
-        for(SearchPreferences pref : listPrefs){
+        for (SearchPreferences pref : listPrefs) {
             Movies movie = new Movies();
             movie.setType(pref.getType());
             movie.setTitle(pref.getTitle());
@@ -64,10 +64,13 @@ public class PreferencesManager {
     private List<SearchPreferences> getListFromJSON(String jsonString){
         ObjectMapper jsonMapper = new ObjectMapper();
         List<SearchPreferences> list = new ArrayList<>();
-        try {
-            list = jsonMapper.readValue(jsonString, new TypeReference<List<SearchPreferences>>() {});
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(jsonString != null) {
+            try {
+                list = jsonMapper.readValue(jsonString, new TypeReference<List<SearchPreferences>>() {
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return list;
     }

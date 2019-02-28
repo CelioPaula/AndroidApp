@@ -3,7 +3,6 @@ package com.example.androidproject;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.View;
@@ -28,9 +27,20 @@ public class MainActivity extends AppCompatActivity {
         final EditText enterTitle = findViewById(R.id.enterTitle);
         final Button btnNext = findViewById(R.id.nextBtn);
         final Button btnBefore = findViewById(R.id.beforeBtn);
-        PreferencesManager preferencesManager = new PreferencesManager(this);
-        ArrayList<Movies> prefMovies = preferencesManager.getSharedPreferences();
+        final Button btnCache = findViewById(R.id.btnCache);
+        final PreferencesManager preferencesManager = new PreferencesManager(this);
+        final ArrayList<Movies> prefMovies = preferencesManager.getSharedPreferences();
         showList(prefMovies);
+
+        btnCache.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "CACHE MEMORY CLEARED", Toast.LENGTH_LONG).show();
+                preferencesManager.emptyPreferences();
+                prefMovies.clear();
+                showList(prefMovies);
+            }
+        });
 
         enterTitle.setOnKeyListener(new View.OnKeyListener() {
             @Override
@@ -70,5 +80,11 @@ public class MainActivity extends AppCompatActivity {
         final RecyclerView rv = (RecyclerView) findViewById(R.id.filmView);
         rv.setLayoutManager(new GridLayoutManager(this, 2));
         rv.setAdapter(new MyAdapter(movies, MainActivity.this));
+    }
+
+    public void showTextSearch(boolean show){
+        final TextView searchText = findViewById(R.id.searchText);
+        if(show) searchText.setVisibility(View.VISIBLE);
+        else searchText.setVisibility(View.INVISIBLE);
     }
 }

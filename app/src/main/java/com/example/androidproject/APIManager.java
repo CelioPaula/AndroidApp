@@ -50,6 +50,7 @@ public class APIManager extends Activity {
                             nbPages = nbResults - nbResults%10;
                             nbPages = nbResults/10;
                             setListDataMovieFromJSON(json.getAsJsonObject());
+                            mainActivity.showTextSearch(false);
                             mainActivity.showList(movie_list);
                             mainActivity.pageNumber.setText(String.valueOf(page)+"/"+String.valueOf(nbPages));
 
