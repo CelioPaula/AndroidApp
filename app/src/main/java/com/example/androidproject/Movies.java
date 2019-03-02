@@ -1,26 +1,43 @@
 package com.example.androidproject;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 public class Movies {
 
 
-    String title;
-    String year;
+    private String title;
+    private String year;
     private String genre;
     private String director;
     private String actors;
     private String runTime;
     private String language;
-    String type;
-    String urlPoster;
-    String plot;
-    String awards;
-    String boxOffice;
-    String production;
+    private String type;
+    private String urlPoster;
+    private String plot;
+    private String awards;
+    private String boxOffice;
+    private String production;
+    private String writer;
+    private String country;
+    private String dvd;
+    private String website;
 
     //private ArrayList<ArrayList<String>> rating;
+
+    public String getWebsite() { return website; }
+
+    public void setWebsite(String website) { this.website = website; }
+
+    public String getWriter() { return writer; }
+
+    public void setWriter(String writer) { this.writer = writer; }
+
+    public String getCountry() { return country; }
+
+    public void setCountry(String country) { this.country = country; }
+
+    public String getDvd() { return dvd; }
+
+    public void setDvd(String dvd) { this.dvd = dvd; }
 
     public String getYear() {
         return year;

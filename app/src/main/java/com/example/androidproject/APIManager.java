@@ -31,7 +31,7 @@ public class APIManager extends Activity {
         searchActivity = null;
     }
 
-    public void getMovies(String title) {
+    public void getMovies(final String title) {
 
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(OMGDPService.BASE_URL)
@@ -42,8 +42,10 @@ public class APIManager extends Activity {
             call.enqueue(new Callback<JsonElement>() {
                 @Override
                 public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                    searchActivity.showProgressBar(false);
                     if (response.isSuccessful()) {
                         JsonElement json = response.body();
+                        searchActivity.showButtons(true);
                         if (json.getAsJsonObject().get("Response").getAsString().replace("\"", "").equals("True")) {
                             movie_list.clear();
                             int nbResults = Integer.parseInt(json.getAsJsonObject().get("totalResults").getAsString().replace("\"", ""));
@@ -52,6 +54,9 @@ public class APIManager extends Activity {
                             setListDataMovieFromJSON(json.getAsJsonObject());
                             searchActivity.showList(movie_list);
                             searchActivity.pageNumber.setText(String.valueOf(page)+"/"+String.valueOf(nbPages));
+                        }
+                        if(json.getAsJsonObject().get("Response").getAsString().replace("\"", "").equals("False")){
+                            Toast.makeText(searchActivity.getApplicationContext(), "The movie " + title + " is not found", Toast.LENGTH_LONG).show();
                         }
                     }
                 }
@@ -92,6 +97,7 @@ public class APIManager extends Activity {
         call.enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                movieActivity.showProgressBar(false);
                 if (response.isSuccessful()) {
                     JsonElement json = response.body();
                     Movies movie = getDetailsFromJSON(json.getAsJsonObject());
@@ -121,6 +127,11 @@ public class APIManager extends Activity {
         movie.setLanguage(String.valueOf(jsonObject.get("Language")).replace("\"", ""));
         movie.setPlot(String.valueOf(jsonObject.get("Plot")).replace("\"", ""));
         movie.setProduction(String.valueOf(jsonObject.get("Production")).replace("\"", ""));
+        movie.setWriter(String.valueOf(jsonObject.get("Writer")).replace("\"", ""));
+        movie.setCountry(String.valueOf(jsonObject.get("Country")).replace("\"", ""));
+        movie.setDvd(String.valueOf(jsonObject.get("DVD")).replace("\"", ""));
+        movie.setWebsite(String.valueOf(jsonObject.get("Website")).replace("\"", ""));
+
         return movie;
     }
 }
