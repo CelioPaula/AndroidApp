@@ -33,39 +33,39 @@ public class APIManager extends Activity {
 
     public void getMovies(final String title) {
 
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(OMGDPService.BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-            OMGDPService api = retrofit.create(OMGDPService.class);
-            Call<JsonElement> call = api.getMovies(title, String.valueOf(page));
-            call.enqueue(new Callback<JsonElement>() {
-                @Override
-                public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                    searchActivity.showProgressBar(false);
-                    if (response.isSuccessful()) {
-                        JsonElement json = response.body();
-                        searchActivity.showButtons(true);
-                        if (json.getAsJsonObject().get("Response").getAsString().replace("\"", "").equals("True")) {
-                            movie_list.clear();
-                            int nbResults = Integer.parseInt(json.getAsJsonObject().get("totalResults").getAsString().replace("\"", ""));
-                            nbPages = nbResults - nbResults%10;
-                            nbPages = nbResults/10;
-                            setListDataMovieFromJSON(json.getAsJsonObject());
-                            searchActivity.showList(movie_list);
-                            searchActivity.pageNumber.setText(String.valueOf(page)+"/"+String.valueOf(nbPages));
-                        }
-                        if(json.getAsJsonObject().get("Response").getAsString().replace("\"", "").equals("False")){
-                            Toast.makeText(searchActivity.getApplicationContext(), "The movie " + title + " is not found", Toast.LENGTH_LONG).show();
-                        }
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(OMGDPService.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        OMGDPService api = retrofit.create(OMGDPService.class);
+        Call<JsonElement> call = api.getMovies(title, String.valueOf(page));
+        call.enqueue(new Callback<JsonElement>() {
+            @Override
+            public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                searchActivity.showProgressBar(false);
+                if (response.isSuccessful()) {
+                    JsonElement json = response.body();
+                    searchActivity.showButtons(true);
+                    if (json.getAsJsonObject().get("Response").getAsString().replace("\"", "").equals("True")) {
+                        movie_list.clear();
+                        int nbResults = Integer.parseInt(json.getAsJsonObject().get("totalResults").getAsString().replace("\"", ""));
+                        nbPages = nbResults - nbResults%10;
+                        nbPages = nbResults/10;
+                        setListDataMovieFromJSON(json.getAsJsonObject());
+                        searchActivity.showList(movie_list);
+                        searchActivity.pageNumber.setText(String.valueOf(page)+"/"+String.valueOf(nbPages));
+                    }
+                    if(json.getAsJsonObject().get("Response").getAsString().replace("\"", "").equals("False")){
+                        Toast.makeText(searchActivity.getApplicationContext(), "The movie " + title + " is not found", Toast.LENGTH_LONG).show();
                     }
                 }
+            }
 
-                @Override
-                public void onFailure(Call<JsonElement> call, Throwable t) {
-                    t.printStackTrace();
-                }
-            });
+            @Override
+            public void onFailure(Call<JsonElement> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 
     private void setListDataMovieFromJSON(JsonObject json){

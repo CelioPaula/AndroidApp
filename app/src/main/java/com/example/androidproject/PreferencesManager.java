@@ -15,11 +15,11 @@ import static android.content.Context.MODE_PRIVATE;
 public class PreferencesManager {
     private static final String SEARCH_KEY = "SEARCH_KEY";
     private static final String MYPREFS = "MYPREFS";
-    private MainActivity mainActivity;
+    private MainActivity2 mainActivity;
     private SearchActivity searchActivity;
     private SharedPreferences sharedPreferences;
 
-    public PreferencesManager(MainActivity mainActivity){
+    public PreferencesManager(MainActivity2 mainActivity){
         this.mainActivity = mainActivity;
         searchActivity = null;
     }

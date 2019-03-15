@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -15,10 +16,10 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     ArrayList<Movies> listMovies;
-    private final MainActivity mainActivity;
+    private final MainActivity2 mainActivity;
     private final SearchActivity searchActivity;
 
-    public MyAdapter(ArrayList<Movies> movies, MainActivity mainActivity){
+    public MyAdapter(ArrayList<Movies> movies, MainActivity2 mainActivity){
         this.listMovies = movies;
         this.mainActivity = mainActivity;
         searchActivity = null;
@@ -60,7 +61,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 view.getContext().startActivity(intent);
             }
         });
-
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

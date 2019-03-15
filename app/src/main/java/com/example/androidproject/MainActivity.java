@@ -16,13 +16,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private PreferencesManager preferencesManager;
+    /*private PreferencesManager preferencesManager;
     private ArrayList<Movies> prefMovies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         final Button btnCache = findViewById(R.id.btnCache);
         final Button btnResearch = findViewById(R.id.btnResearch);
@@ -43,11 +44,10 @@ public class MainActivity extends AppCompatActivity {
         btnResearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), SearchActivity.class);
+                Intent intent = new Intent(view.getContext(), MainActivity2.class);
                 view.getContext().startActivity(intent);
             }
         });
-
     }
 
     @Override
@@ -73,5 +73,5 @@ public class MainActivity extends AppCompatActivity {
         Notification notify = new Notification.Builder(getApplicationContext()).setContentTitle("MOVIEAPP").setContentText("A new movie was released").setSmallIcon(R.drawable.ic_launcher_background).build();
         notify.flags |= Notification.FLAG_AUTO_CANCEL;
         notif.notify(0, notify);
-    }
+    }*/
 }

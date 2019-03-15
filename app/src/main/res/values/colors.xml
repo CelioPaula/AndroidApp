@@ -6,4 +6,7 @@
     <color name="lightBlue">#87CEFA</color>
     <color name="darkBlue">#003FDD</color>
     <color name="black">#000000</color>
+    <color name="fontGIF">#253F52</color>
+    <color name="lightGrey">#CB928A8A</color>
+
 </resources>
