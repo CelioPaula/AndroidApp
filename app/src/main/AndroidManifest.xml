@@ -20,13 +20,13 @@
             android:windowSoftInputMode="adjustPan">
 
         </activity>
-        <activity android:name=".SearchActivity"
+        <activity android:name=".view.SearchActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"
             tools:ignore="ExtraText"
             android:windowSoftInputMode="adjustPan">
         </activity>
-        <activity android:name=".MainActivity2"
+        <activity android:name=".view.MainMenuActivity"
             android:theme="@style/CustomActionBarTheme"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
@@ -36,7 +36,7 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".MovieActivity"
+        <activity android:name=".view.MovieActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"
             tools:ignore="ExtraText"

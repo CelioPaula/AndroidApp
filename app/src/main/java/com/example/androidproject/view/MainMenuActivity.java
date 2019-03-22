@@ -1,32 +1,33 @@
-package com.example.androidproject;
+package com.example.androidproject.view;
 
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.androidproject.R;
+import com.example.androidproject.controller.PreferencesController;
+import com.example.androidproject.model.Movies;
+
 import java.util.ArrayList;
 
-public class MainActivity2 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainMenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
    private DrawerLayout myDrawer;
     private ActionBarDrawerToggle myToggle;
 
-    private PreferencesManager preferencesManager;
+    private PreferencesController preferencesController;
     private ArrayList<Movies> prefMovies;
 
     @Override
@@ -67,12 +68,12 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
     public boolean onNavigationItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.searchItem:
-                Intent intent = new Intent(MainActivity2.this, SearchActivity.class);
+                Intent intent = new Intent(MainMenuActivity.this, SearchActivity.class);
                 startActivity(intent);
                 break;
             case R.id.emptyItem:
-                Toast.makeText(MainActivity2.this, "CACHE MEMORY CLEARED", Toast.LENGTH_LONG).show();
-                preferencesManager.emptyPreferences();
+                Toast.makeText(MainMenuActivity.this, "CACHE MEMORY CLEARED", Toast.LENGTH_LONG).show();
+                preferencesController.emptyPreferences();
                 prefMovies.clear();
                 showList(prefMovies);
                 break;
@@ -81,7 +82,6 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
         return true;
     }
 
-
     @Override
     public void onResume(){
         super.onResume();
@@ -89,15 +89,15 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
     }
 
     public void showPreferences(){
-        preferencesManager = new PreferencesManager(this);
-        prefMovies = preferencesManager.getSharedPreferences();
+        preferencesController = new PreferencesController(this);
+        prefMovies = preferencesController.getSharedPreferences();
         showList(prefMovies);
     }
 
     public void showList(ArrayList<Movies> movies) {
         final RecyclerView rv = (RecyclerView) findViewById(R.id.filmView);
         rv.setLayoutManager(new GridLayoutManager(this, 2));
-        rv.setAdapter(new MyAdapter(movies, MainActivity2.this));
+        rv.setAdapter(new MyAdapter(movies, MainMenuActivity.this));
     }
 
     public void displayPushNotification(){

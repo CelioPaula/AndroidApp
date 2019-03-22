@@ -1,7 +1,12 @@
-package com.example.androidproject;
+package com.example.androidproject.controller;
 
 import android.app.Activity;
 import android.widget.Toast;
+
+import com.example.androidproject.view.MovieActivity;
+import com.example.androidproject.model.Movies;
+import com.example.androidproject.OMGDPService;
+import com.example.androidproject.view.SearchActivity;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonIOException;
@@ -13,7 +18,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class APIManager extends Activity {
+public class APIController extends Activity {
 
     private final SearchActivity searchActivity;
     private final MovieActivity movieActivity;
@@ -21,22 +26,19 @@ public class APIManager extends Activity {
     public int nbPages = 0;
     public int page;
 
-    public APIManager(SearchActivity searchActivity) {
+    public APIController(SearchActivity searchActivity) {
         this.searchActivity = searchActivity;
         movieActivity = null;
     }
 
-    public APIManager(MovieActivity movieActivity){
+    public APIController(MovieActivity movieActivity){
         this.movieActivity = movieActivity;
         searchActivity = null;
     }
 
     public void getMovies(final String title) {
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(OMGDPService.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        Retrofit retrofit = InjectionDependances.getRetrofitDependances();
         OMGDPService api = retrofit.create(OMGDPService.class);
         Call<JsonElement> call = api.getMovies(title, String.valueOf(page));
         call.enqueue(new Callback<JsonElement>() {
@@ -88,10 +90,7 @@ public class APIManager extends Activity {
 
     public void getMovieDetails(String title) {
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(OMGDPService.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        Retrofit retrofit = InjectionDependances.getRetrofitDependances();
         OMGDPService api = retrofit.create(OMGDPService.class);
         Call<JsonElement> call = api.getMovieDetails(title);
         call.enqueue(new Callback<JsonElement>() {

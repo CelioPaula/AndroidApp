@@ -1,4 +1,4 @@
-package com.example.androidproject;
+package com.example.androidproject.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.Expose;

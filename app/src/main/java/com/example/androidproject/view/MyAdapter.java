@@ -1,4 +1,4 @@
-package com.example.androidproject;
+package com.example.androidproject.view;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.androidproject.controller.PreferencesController;
+import com.example.androidproject.R;
+import com.example.androidproject.model.Movies;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -16,10 +18,10 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     ArrayList<Movies> listMovies;
-    private final MainActivity2 mainActivity;
+    private final MainMenuActivity mainActivity;
     private final SearchActivity searchActivity;
 
-    public MyAdapter(ArrayList<Movies> movies, MainActivity2 mainActivity){
+    public MyAdapter(ArrayList<Movies> movies, MainMenuActivity mainActivity){
         this.listMovies = movies;
         this.mainActivity = mainActivity;
         searchActivity = null;
@@ -51,10 +53,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PreferencesManager preferencesManager = null;
+                PreferencesController preferencesController = null;
                 if(searchActivity != null) {
-                    preferencesManager = new PreferencesManager(searchActivity);
-                    preferencesManager.addSharedPreferences(listMovies.get(position));
+                    preferencesController = new PreferencesController(searchActivity);
+                    preferencesController.addSharedPreferences(listMovies.get(position));
                 }
                 Intent intent = new Intent(view.getContext(), MovieActivity.class);
                 intent.putExtra("targetMovie", listMovies.get(position).getTitle());
