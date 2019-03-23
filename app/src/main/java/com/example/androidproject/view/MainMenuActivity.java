@@ -77,6 +77,10 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
                 prefMovies.clear();
                 showList(prefMovies);
                 break;
+            case R.id.infoItem:
+                Intent intent2 = new Intent(MainMenuActivity.this, InfoActivity.class);
+                startActivity(intent2);
+                break;
         }
 
         return true;
