@@ -73,5 +73,6 @@ https://github.com/CelioPaula/AndroidApp.git
 
 - Second appel de l'API Rest avec un autre argument pour obtenir les informations sur le film que nous avons sélectionné dans l'écran précédent
 - Lien redirectionnel vers le site officiel du film
+
 <img src="img_readme/details1.png" alt="research" width="250" height="470"> <img src="img_readme/details2.png" alt="research" width="250" height="470"> <img src="img_readme/details3.png" alt="research" width="250" height="470">
 
