@@ -14,7 +14,7 @@ On récupère divers informations telles que :
 - La production 
 - Les acteurs
 - Le Box Office 
-- etc..
+- etc...
 
 Cette Application a été codée en Java tout en respectant le **pattern MVC**.
 
@@ -46,5 +46,6 @@ https://github.com/CelioPaula/AndroidApp.git
   - Bouton pour vider les films stockés dans le cache
   - Lien de redirection vers le site officiel du film concerné
   - Notifications Push (Firebase)
+  
   
   ## Fonctionnalités: 
