@@ -49,15 +49,22 @@ https://github.com/CelioPaula/AndroidApp.git
   
 ## Fonctionnalités
 
-### Premier écran (*launcher*)
+### Ecran de lancement
 
 - Animation affichant le logo de l'appli réalisé sous adobe Illustrator ainsi qu'un message clignotant (*Click to continue*)
 - Transition *zoom* entre cet écran et le suivant
 <img src="img_readme/launcher.png" alt="launcher" width="300" height="520"> 
 
-### Second écran (*MainMenu*)
+### Menu principal 
 
 - RecyclerView affichant les derniers films recherchés présents dans la mémoire cache du smartphone
 - NavigationBar à gauche de l'écran permettant de se rendre dans d'autres écrans ou bien de nettoyer le cache
-<img src="img_readme/mainMenu.png" alt="launcher" width="300" height="520">      <img src="img_readme/navigationBar.png" alt="launcher" width="300" height="520"> 
+<img src="img_readme/mainMenu.png" alt="mainMenu" width="300" height="520"> <img src="img_readme/navigationBar.png" alt="navigationBar" width="300" height="520"> 
 
+### Ecran de recherche 
+
+- Utilisation d'une barre de recherche pour taper le nom du film que l'on souhaite
+- Premier appel de l'API Rest pour obtenir la liste de tous les films coïncidant avec le nom tapé
+- Utilisation d'une RecyclerView pour afficher la liste des films
+- Possibilité d'effectuer d'autres appels de l'API en cliquant sur les boutons (flêches) pour défiler les pages et ainsi voir plus de films en rapport avec le nom tapé
+<img src="img_readme/research.png" alt="research" width="300" height="520">
