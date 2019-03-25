@@ -89,3 +89,5 @@ https://github.com/CelioPaula/AndroidApp.git
 
 
 ### BONUS : Ecran informations
+
+<img src="img_readme/info.png" alt="info" width="300" height="520">
