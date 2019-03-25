@@ -48,3 +48,10 @@ https://github.com/CelioPaula/AndroidApp.git
   	- Notifications Push (Firebase)
   
 ## Fonctionnalités
+
+### Premier écran (*launcher*)
+
+- Animation affichant le logo de l'appli réalisé sous adobe Illustrator ainsi qu'un message clignotant (*Click to continue*)
+<img src="img_readme/liste_pokemon.png" alt="liste pokemon">
+
+
