@@ -68,3 +68,12 @@ https://github.com/CelioPaula/AndroidApp.git
 - Utilisation d'une RecyclerView pour afficher la liste des films
 - Possibilité d'effectuer d'autres appels de l'API en cliquant sur les boutons (flêches) pour défiler les pages et ainsi voir plus de films en rapport avec le nom tapé
 <img src="img_readme/research.png" alt="research" width="300" height="520">
+
+### Ecran de détails
+
+- Second appel de l'API Rest avec un autre argument pour obtenir les informations sur le film que nous avons sélectionné dans l'écran précédent
+- Lien redirectionnel vers le site officiel du film
+<img src="img_readme/details1.png" alt="research" width="300" height="520">
+<img src="img_readme/details2.png" alt="research" width="300" height="520">
+<img src="img_readme/details3.png" alt="research" width="300" height="520">
+
