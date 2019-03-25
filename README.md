@@ -1,4 +1,4 @@
-# Projet Application Android : Cinem APP
+# Projet Application Android : Cinem APP		<img src="img_readme/.png" alt="recherche">
 ## Auteur
 
 - Célio PAULA (3A)
