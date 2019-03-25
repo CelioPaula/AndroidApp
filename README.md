@@ -77,5 +77,10 @@ https://github.com/CelioPaula/AndroidApp.git
 - Second appel de l'API Rest avec un autre argument pour obtenir les informations sur le film que nous avons sélectionné dans l'écran précédent
 - Lien redirectionnel vers le site officiel du film
 
-<img src="img_readme/details1.png" alt="research" width="290" height="510"> <img src="img_readme/details2.png" alt="research" width="290" height="510"> <img src="img_readme/details3.png" alt="research" width="290" height="510">
+<img src="img_readme/details1.png" alt="details1" width="290" height="510"> <img src="img_readme/details2.png" alt="details2" width="290" height="510"> <img src="img_readme/details3.png" alt="details3" width="290" height="510">
 
+### Mémoire cache
+
+- Un fois qu'on affiche le détail d'un film, celui-ci est automatiquement stocké (titre, date, type) dans la mémoire cache, on le voit alors apparaitre dans la liste du menu principal
+
+<img src="img_readme/cacheMemory.png" alt="cacheMemory" width="300" height="520">
