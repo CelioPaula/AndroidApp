@@ -59,5 +59,5 @@ https://github.com/CelioPaula/AndroidApp.git
 
 - RecyclerView affichant les derniers films recherchés présents dans la mémoire cache du smartphone
 - NavigationBar à gauche de l'écran permettant de se rendre dans d'autres écrans ou bien de nettoyer le cache
-<img src="img_readme/mainMenu.png" alt="launcher" width="300" height="520"> <img src="img_readme/navigationBar.png" alt="launcher" width="300" height="520"> 
+<img src="img_readme/mainMenu.png" alt="launcher" width="300" height="520">      <img src="img_readme/navigationBar.png" alt="launcher" width="300" height="520"> 
 
