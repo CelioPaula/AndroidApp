@@ -6,7 +6,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -21,8 +23,8 @@ public class SearchActivity extends AppCompatActivity {
     private APIController apiController = new APIController(SearchActivity.this);
     public TextView pageNumber;
     private String title;
-    private Button btnNext;
-    private Button btnBefore;
+    private ImageButton btnNext;
+    private ImageButton btnBefore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +99,15 @@ public class SearchActivity extends AppCompatActivity {
         }else{
             btnBefore.setVisibility(View.INVISIBLE);
             btnNext.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    public void showBlueRelativeLayout(boolean show){
+        RelativeLayout rLayout = findViewById(R.id.blueLayout);
+        if(show) {
+            rLayout.setVisibility(View.VISIBLE);
+        }else{
+            rLayout.setVisibility(View.INVISIBLE);
         }
     }
 }

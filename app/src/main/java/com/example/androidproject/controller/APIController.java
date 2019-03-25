@@ -5,7 +5,7 @@ import android.widget.Toast;
 
 import com.example.androidproject.view.MovieActivity;
 import com.example.androidproject.model.Movies;
-import com.example.androidproject.OMGDPService;
+import com.example.androidproject.OMDbService;
 import com.example.androidproject.view.SearchActivity;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -16,7 +16,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIController extends Activity {
 
@@ -39,7 +38,7 @@ public class APIController extends Activity {
     public void getMovies(final String title) {
 
         Retrofit retrofit = InjectionDependances.getRetrofitDependances();
-        OMGDPService api = retrofit.create(OMGDPService.class);
+        OMDbService api = retrofit.create(OMDbService.class);
         Call<JsonElement> call = api.getMovies(title, String.valueOf(page));
         call.enqueue(new Callback<JsonElement>() {
             @Override
@@ -48,6 +47,7 @@ public class APIController extends Activity {
                 if (response.isSuccessful()) {
                     JsonElement json = response.body();
                     searchActivity.showButtons(true);
+                    searchActivity.showBlueRelativeLayout(true);
                     if (json.getAsJsonObject().get("Response").getAsString().replace("\"", "").equals("True")) {
                         movie_list.clear();
                         int nbResults = Integer.parseInt(json.getAsJsonObject().get("totalResults").getAsString().replace("\"", ""));
@@ -91,7 +91,7 @@ public class APIController extends Activity {
     public void getMovieDetails(String title) {
 
         Retrofit retrofit = InjectionDependances.getRetrofitDependances();
-        OMGDPService api = retrofit.create(OMGDPService.class);
+        OMDbService api = retrofit.create(OMDbService.class);
         Call<JsonElement> call = api.getMovieDetails(title);
         call.enqueue(new Callback<JsonElement>() {
             @Override

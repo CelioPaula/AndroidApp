@@ -7,7 +7,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 
-public interface OMGDPService {
+public interface OMDbService {
 
     String BASE_URL = "http://www.omdbapi.com";
     String KEY_API = "/?apikey=2783c44f";

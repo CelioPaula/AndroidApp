@@ -83,7 +83,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
 
         public void display(Movies movie, int position) {
-            title.setText("Title : " + movie.getTitle());
+            title.setText(movie.getTitle());
             year.setText("Year : " + movie.getYear());
             type.setText("Type : " + movie.getType());
             this.position = position;

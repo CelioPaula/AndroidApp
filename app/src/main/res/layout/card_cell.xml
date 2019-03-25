@@ -22,36 +22,37 @@
             android:scaleType="centerCrop"/>
 
         <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:selectableItemBackground"
-        android:padding="20dp"
-        android:fontFamily="sans-serif"
-        android:textColor="#333"
-        android:textSize="18sp" />
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:fontFamily="sans-serif-light"
+            android:padding="20dp"
+            android:textColor="#333"
+            android:textSize="18sp" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/year"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="?android:selectableItemBackground"
+                android:fontFamily="sans-serif-thin"
                 android:padding="20dp"
-                android:fontFamily="sans-serif"
                 android:textColor="#333"
-                android:textSize="18sp"
-                />
+                android:textSize="18sp" />
+
             <TextView
                 android:id="@+id/type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="?android:selectableItemBackground"
+                android:fontFamily="sans-serif-thin"
                 android:padding="20dp"
-                android:fontFamily="sans-serif"
                 android:textColor="#333"
                 android:textSize="18sp" />
         </RelativeLayout>
