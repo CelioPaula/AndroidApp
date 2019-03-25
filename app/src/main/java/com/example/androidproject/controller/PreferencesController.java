@@ -1,7 +1,11 @@
-package com.example.androidproject;
+package com.example.androidproject.controller;
 
 import android.content.SharedPreferences;
-import android.widget.Toast;
+
+import com.example.androidproject.view.MainMenuActivity;
+import com.example.androidproject.view.SearchActivity;
+import com.example.androidproject.model.SearchPreferences;
+import com.example.androidproject.model.Movies;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,19 +16,19 @@ import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class PreferencesManager {
+public class PreferencesController {
     private static final String SEARCH_KEY = "SEARCH_KEY";
     private static final String MYPREFS = "MYPREFS";
-    private MainActivity mainActivity;
+    private MainMenuActivity mainActivity;
     private SearchActivity searchActivity;
     private SharedPreferences sharedPreferences;
 
-    public PreferencesManager(MainActivity mainActivity){
+    public PreferencesController(MainMenuActivity mainActivity){
         this.mainActivity = mainActivity;
         searchActivity = null;
     }
 
-    public PreferencesManager(SearchActivity searchActivity){
+    public PreferencesController(SearchActivity searchActivity){
         this.searchActivity = searchActivity;
         mainActivity = null;
     }

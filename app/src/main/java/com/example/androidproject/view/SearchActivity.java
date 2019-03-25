@@ -1,23 +1,24 @@
-package com.example.androidproject;
+package com.example.androidproject.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.TextView;
+
+import com.example.androidproject.R;
+import com.example.androidproject.controller.APIController;
+import com.example.androidproject.model.Movies;
 
 import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
 
-    private APIManager apiManager = new APIManager(SearchActivity.this);
+    private APIController apiController = new APIController(SearchActivity.this);
     public TextView pageNumber;
     private String title;
     private Button btnNext;
@@ -43,8 +44,8 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 showProgressBar(true);
-                apiManager.page = 1;
-                apiManager.getMovies(query);
+                apiController.page = 1;
+                apiController.getMovies(query);
                 title = query;
                 return false;
             }
@@ -58,9 +59,9 @@ public class SearchActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                apiManager.page++;
-                if(apiManager.page > apiManager.nbPages) apiManager.page = apiManager.nbPages;
-                apiManager.getMovies(title);
+                apiController.page++;
+                if(apiController.page > apiController.nbPages) apiController.page = apiController.nbPages;
+                apiController.getMovies(title);
 
             }
         });
@@ -68,9 +69,9 @@ public class SearchActivity extends AppCompatActivity {
         btnBefore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                apiManager.page--;
-                if(apiManager.page < 1)apiManager.page = 1;
-                apiManager.getMovies(title);
+                apiController.page--;
+                if(apiController.page < 1) apiController.page = 1;
+                apiController.getMovies(title);
             }
         });
 

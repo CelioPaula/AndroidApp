@@ -6,73 +6,72 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:background="@color/lightBlue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+     <android.support.constraint.ConstraintLayout
+         android:id="@+id/constraintLayout"
+         android:layout_width="match_parent"
+         android:layout_height="42dp"
+         android:background="@color/lightBlue"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent">
+     </android.support.constraint.ConstraintLayout>
 
-    </android.support.constraint.ConstraintLayout>
+     <android.support.v7.widget.RecyclerView
+         android:id="@+id/filmView"
+         android:layout_width="395dp"
+         android:layout_height="486dp"
+         android:layout_marginStart="8dp"
+         android:layout_marginLeft="8dp"
+         android:layout_marginTop="8dp"
+         android:layout_marginEnd="8dp"
+         android:layout_marginRight="8dp"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/filmView"
-        android:layout_width="395dp"
-        android:layout_height="486dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+     <TextView
+         android:id="@+id/textView2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginStart="176dp"
+         android:layout_marginLeft="176dp"
+         android:layout_marginTop="8dp"
+         android:layout_marginEnd="176dp"
+         android:layout_marginRight="176dp"
+         android:layout_marginBottom="8dp"
+         android:text="LAST RESEARCHES"
+         android:textColor="@color/cardview_light_background"
+         android:textSize="24sp"
+         android:textStyle="bold"
+         app:layout_constraintBottom_toTopOf="@+id/filmView"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginLeft="176dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginRight="176dp"
-        android:layout_marginBottom="8dp"
-        android:text="LAST RESEARCHES"
-        android:textColor="@color/cardview_light_background"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/filmView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+     <Button
+         android:id="@+id/btnResearch"
+         android:layout_width="155dp"
+         android:layout_height="30dp"
+         android:layout_marginStart="15dp"
+         android:layout_marginLeft="15dp"
+         android:layout_marginBottom="6dp"
+         android:background="@color/lightBlue"
+         android:text="RESEARCH"
+         android:textColor="@color/cardview_light_background"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/btnResearch"
-        android:layout_width="155dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginBottom="6dp"
-        android:background="@color/lightBlue"
-        android:text="RESEARCH"
-        android:textColor="@color/cardview_light_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnCache"
-        android:layout_width="155dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="6dp"
-        android:background="@color/lightBlue"
-        android:text="EMPTY CACHE"
-        android:textColor="@color/cardview_light_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+     <Button
+         android:id="@+id/btnCache"
+         android:layout_width="155dp"
+         android:layout_height="30dp"
+         android:layout_marginEnd="15dp"
+         android:layout_marginRight="15dp"
+         android:layout_marginBottom="6dp"
+         android:background="@color/lightBlue"
+         android:text="EMPTY CACHE"
+         android:textColor="@color/cardview_light_background"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.androidproject;
+package com.example.androidproject.view;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -10,9 +10,10 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.androidproject.R;
+import com.example.androidproject.controller.APIController;
+import com.example.androidproject.model.Movies;
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
 
 public class MovieActivity extends AppCompatActivity {
 
@@ -22,7 +23,7 @@ public class MovieActivity extends AppCompatActivity {
         setContentView(R.layout.activity_movie);
         Bundle extras = getIntent().getExtras();
         if (extras != null){
-            APIManager api = new APIManager(this);
+            APIController api = new APIController(this);
             api.getMovieDetails(extras.get("targetMovie").toString());
         }
     }
