@@ -1,4 +1,4 @@
-<img src="img_readme/ic_logoapp.png" align="right">
+<img src="img_readme/ic_logoapp.png">
 # Projet Application Android : Cinem APP				
 ## Auteur
 
