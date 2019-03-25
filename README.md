@@ -15,4 +15,5 @@ On récupère divers informations telles que :
 - Les acteurs
 - Le Box Office 
 - etc..
+
 Cette Application a été codée en Java tout en respectant le **pattern MVC**.
