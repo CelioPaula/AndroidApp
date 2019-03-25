@@ -1,4 +1,4 @@
-# Projet Application Android : Cinem APP	<img src="img_readme/ic_logoapp.png">			
+# Projet Application Android : Cinem APP
 ## Auteur
 
 - Célio PAULA (3A)
@@ -33,7 +33,7 @@ https://github.com/CelioPaula/AndroidApp.git
 
 - Architecture MVC
 - Appels REST (utilisation de Retrofit)
-- Ecrans : 4 activités
+- Ecrans : 5 activités
 - Affichage d'une liste dans un RecyclerView
 - Affichage du détail d'un item de la liste
 - Gitflow 
