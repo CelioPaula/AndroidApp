@@ -1,4 +1,4 @@
-# Projet Application Android : Cinem APP					<img src="img_readme/ic_logoapp.png" align="right">
+# Projet Application Android : Cinem APP				<img src="img_readme/ic_logoapp.png" align="right">
 ## Auteur
 
 - Célio PAULA (3A)
