@@ -40,12 +40,12 @@ https://github.com/CelioPaula/AndroidApp.git
 - Fonctions supplémentaires :
 	- Barre de recherche
 	- Mise en cache (SharedPreferences) des dernières recherches éffectuées
-  - Animations à l'écran de démarage
-  - Animation entre la première et seconde activité
-  - Mise en place d'une Navigation Bar sur la seconde activité
-  - Bouton pour vider les films stockés dans le cache
-  - Lien de redirection vers le site officiel du film concerné
-  - Notifications Push (Firebase)
+  	- Animations à l'écran de démarage
+  	- Animation entre la première et seconde activité
+  	- Mise en place d'une Navigation Bar sur la seconde activité
+  	- Bouton pour vider les films stockés dans le cache
+  	- Lien de redirection vers le site officiel du film concerné
+  	- Notifications Push (Firebase)
   
   
   ## Fonctionnalités: 
