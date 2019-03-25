@@ -27,7 +27,8 @@ public class LauncherActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LauncherActivity.this, MainMenuActivity.class);
                 startActivity(intent);
-            }
+                overridePendingTransition(R.anim.zoom_in, R.anim.zoom_out);
+        }
         });
     }
 
