@@ -26,5 +26,5 @@ Cette Application a été codée en Java tout en respectant le **pattern MVC**.
 
 
 ````
-https://github.com/LudoCarlu/Pokemon.git
+https://github.com/CelioPaula/AndroidApp.git
 ````
