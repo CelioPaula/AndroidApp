@@ -17,3 +17,14 @@ On récupère divers informations telles que :
 - etc..
 
 Cette Application a été codée en Java tout en respectant le **pattern MVC**.
+
+## Prérequis
+
+
+- Installation d'Android Studio
+- Récupérer la branche release<br/>
+
+
+````
+https://github.com/LudoCarlu/Pokemon.git
+````
