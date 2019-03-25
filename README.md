@@ -47,5 +47,4 @@ https://github.com/CelioPaula/AndroidApp.git
   	- Lien de redirection vers le site officiel du film concerné
   	- Notifications Push (Firebase)
   
-  
-  ## Fonctionnalités: 
+## Fonctionnalités: 
