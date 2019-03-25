@@ -52,6 +52,6 @@ https://github.com/CelioPaula/AndroidApp.git
 ### Premier écran (*launcher*)
 
 - Animation affichant le logo de l'appli réalisé sous adobe Illustrator ainsi qu'un message clignotant (*Click to continue*)
-<img src="img_readme/launcher.png" alt="launcher">
+<img src="img_readme/launcher.png" alt="launcher" width="100" height="250">
 
 
