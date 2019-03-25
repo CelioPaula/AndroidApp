@@ -29,7 +29,7 @@ Cette Application a été codée en Java tout en respectant le **pattern MVC**.
 https://github.com/CelioPaula/AndroidApp.git
 ````
 
-## Consignes respectées : 
+## Consignes respectées 
 
 - Architecture MVC
 - Appels REST (utilisation de Retrofit)
@@ -47,4 +47,4 @@ https://github.com/CelioPaula/AndroidApp.git
   	- Lien de redirection vers le site officiel du film concerné
   	- Notifications Push (Firebase)
   
-## Fonctionnalités: 
+## Fonctionnalités
