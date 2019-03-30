@@ -89,6 +89,9 @@ https://github.com/CelioPaula/AndroidApp.git
 
 - Notification *Firebase* programmé tout les jours à 8H00
 
+<img src="img_readme/notificationFirebase.png" alt="cacheMemory" width="300" height="520">
+<img src="img_readme/notificationFirebase 2.png" alt="cacheMemory" width="300" height="520">
+
 ### BONUS : Ecran informations
 
 <img src="img_readme/info.png" alt="info" width="300" height="520">
