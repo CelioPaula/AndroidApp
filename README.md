@@ -87,6 +87,7 @@ https://github.com/CelioPaula/AndroidApp.git
 
 ### Notification push
 
+- Notification *Firebase* programmé tout les jours à 8H00
 
 ### BONUS : Ecran informations
 
