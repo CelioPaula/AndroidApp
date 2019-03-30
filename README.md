@@ -8,12 +8,12 @@
 Cinem APP est une application Android permettant d'obtenir des informations sur divers films.
 
 Cette application fait appel à l'API Rest *OMDb API (The Open Movie Database)* grâce à **Retrofit** et expose les données reçues au travers d'une **RecyclerView**.
-On récupère divers informations telles que :
+On récupère diverses informations telles que :
 - Le titre
 - L'année
 - La production 
 - Les acteurs
-- Le Box Office 
+- Le Box-Office 
 - etc...
 
 Cette Application a été codée en Java tout en respectant le **pattern MVC**.
@@ -39,8 +39,8 @@ https://github.com/CelioPaula/AndroidApp.git
 - Gitflow 
 - Fonctions supplémentaires :
 	- Barre de recherche
-	- Mise en cache (SharedPreferences) des dernières recherches éffectuées
-  	- Animations à l'écran de démarage
+	- Mise en cache (SharedPreferences) des dernières recherches effectuées
+  	- Animations à l'écran de démarrage
   	- Animation entre la première et seconde activité
   	- Mise en place d'une Navigation Bar sur la seconde activité
   	- Bouton pour vider les films stockés dans le cache
@@ -51,7 +51,7 @@ https://github.com/CelioPaula/AndroidApp.git
 
 ### Ecran de lancement
 
-- Animation affichant le logo de l'appli réalisé sous adobe Illustrator ainsi qu'un message clignotant (*Click to continue*)
+- Animation affichant le logo de l'application réalisé sous adobe *Illustrator* ainsi qu'un message clignotant (*Click to continue*)
 - Transition *zoom* entre cet écran et le suivant
 
 <img src="img_readme/launcher.png" alt="launcher" width="300" height="520"> 
@@ -68,7 +68,7 @@ https://github.com/CelioPaula/AndroidApp.git
 - Utilisation d'une barre de recherche pour taper le nom du film que l'on souhaite
 - Premier appel de l'API Rest pour obtenir la liste de tous les films coïncidant avec le nom tapé
 - Utilisation d'une RecyclerView pour afficher la liste des films
-- Possibilité d'effectuer d'autres appels de l'API en cliquant sur les boutons (flêches) pour défiler les pages et ainsi voir plus de films en rapport avec le nom tapé
+- Possibilité d'effectuer d'autres appels de l'API en cliquant sur les boutons (flèches) pour défiler les pages et ainsi voir plus de films en rapport avec le nom tapé
 
 <img src="img_readme/research.png" alt="research" width="300" height="520">
 
@@ -87,7 +87,7 @@ https://github.com/CelioPaula/AndroidApp.git
 
 ### Notification push
 
-- Notification *Firebase* programmé tout les jours à 8H00
+- Notification *Firebase* programmé tous les jours à 8H00
 
 <img src="img_readme/notificationFirebase.png" alt="notificationPush" width="300" height="520"> <img src="img_readme/firebase.png" alt="firebase" width="400" height="200">
 
