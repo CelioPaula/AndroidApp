@@ -81,7 +81,7 @@ https://github.com/CelioPaula/AndroidApp.git
 
 ### Mémoire cache
 
-- Un fois qu'on affiche le détail d'un film, celui-ci est automatiquement stocké (titre, date, type) dans la mémoire cache, on le voit alors apparaitre dans la liste du menu principal
+- Un fois qu'on affiche le détail d'un film, celui-ci est automatiquement stocké (titre, date, type, lien image) dans la mémoire cache, on le voit alors apparaitre dans la liste du menu principal
 
 <img src="img_readme/cacheMemory.png" alt="cacheMemory" width="300" height="520">
 
