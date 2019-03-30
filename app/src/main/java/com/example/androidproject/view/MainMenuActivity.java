@@ -46,7 +46,6 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         navigationView.setNavigationItemSelectedListener(this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        displayPushNotification();
         showPreferences();
 
         final TextView textInfo = findViewById(R.id.textInfo);
@@ -102,13 +101,6 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         final RecyclerView rv = (RecyclerView) findViewById(R.id.filmView);
         rv.setLayoutManager(new GridLayoutManager(this, 2));
         rv.setAdapter(new MyAdapter(movies, MainMenuActivity.this));
-    }
-
-    public void displayPushNotification(){
-        NotificationManager notif = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-        Notification notify = new Notification.Builder(getApplicationContext()).setContentTitle("MOVIEAPP").setContentText("A new movie was released").setSmallIcon(R.drawable.ic_launcher_background).build();
-        notify.flags |= Notification.FLAG_AUTO_CANCEL;
-        notif.notify(0, notify);
     }
 }
 
