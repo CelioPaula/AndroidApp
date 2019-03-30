@@ -89,8 +89,7 @@ https://github.com/CelioPaula/AndroidApp.git
 
 - Notification *Firebase* programmé tout les jours à 8H00
 
-<img src="img_readme/notificationFirebase.png" alt="notificationPush" width="300" height="520">
-<img src="img_readme/firebase.png" alt="firebase" width="400" height="200">
+<img src="img_readme/notificationFirebase.png" alt="notificationPush" width="300" height="520"> <img src="img_readme/firebase.png" alt="firebase" width="400" height="200">
 
 ### BONUS : Ecran informations
 
